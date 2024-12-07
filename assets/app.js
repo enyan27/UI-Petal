@@ -46,7 +46,7 @@ window.onload = () => {
     setTimeout(() => {
         modal.classList.add('active');
         createSignature();
-    }, 32000);
+    }, 33000);
 };
 
 const canvas = document.querySelector('canvas');
