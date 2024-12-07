@@ -95,12 +95,17 @@ document.body.addEventListener('click', () => {
     document.getElementById('bg-soundtrack').play();
 });
 
-window.addEventListener('resize', function() {
+function resizeImage() {
     var height = window.innerHeight;
     var width = window.innerWidth;
 
-    if (width < 986) {
+    if (width < 769) {
         var x = 150 + (height - 700) * 0.2;
         document.body.style.backgroundPosition = `calc(50% + ${x}px)`;
-    } else { document.body.style.backgroundPosition = 'center center' }; 
-});
+    } else {
+        document.body.style.backgroundPosition = 'center center';
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => resizeImage());
+window.addEventListener('resize', () => resizeImage());

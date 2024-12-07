@@ -45,18 +45,21 @@ h1 {
     margin-top: -.5em;
     margin-left: -.5em;
     animation: fadeInOut 5s ease-in-out 2s;
-    width: 600px;
+    width: auto;
+    padding: 0 70px;
     height: 50px;
     line-height: 50px;
+    letter-spacing: 5px;
     text-align: center;
     background-color: rgb(0, 0, 0, .3);
     clip-path: polygon(0% 0%, 5% 100%, 100% 100%, 95% 0%);
     overflow: hidden;
 }
-@media (max-width: 968px) {
+@media (max-width: 769px) {
     html,
     body {
         background-size: cover;
+        /* background-position: calc(60% + 270px) center; */
     }
     canvas {
         width: 100%;
@@ -71,6 +74,10 @@ h1 {
         line-height: 55px;
         letter-spacing: 5px;
         clip-path: polygon(0% 0%, 5% 95%, 100% 100%, 95% 5%);;
+    }
+    .number {
+        display: inline-block;
+        writing-mode: horizontal-tb;
     }
 }
 h1:nth-child(2) {
