@@ -1,3 +1,54 @@
+const sign = document.querySelector('.signature-main')
+const uppercase = document.querySelectorAll('.letter-bank .up')
+const lowercase = document.querySelectorAll('.letter-bank .lo')
+const modal = document.querySelector('.modal')
+const content = "Truong Duc Dat";
+
+function draw(key, animate) {
+    if (key == " ") {
+        const space = document.createElement("div");
+        space.style.minWidth = '12px'
+        sign.appendChild(space)
+    } else {
+        const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(97 + i));
+        for (let i = 0; i < alphabet.length; i++) {
+            var item = alphabet[i]
+            if (key.toLowerCase() == item) {
+                const letter = document.createElement("div");
+                if (key == item.toUpperCase()) {
+                    letter.innerHTML = uppercase[i].innerHTML
+                    letter.classList.add('up')
+                } else {
+                    letter.innerHTML = lowercase[i].innerHTML
+                    letter.classList.add('lo')
+                }
+                letter.classList.add(item)
+                if (animate) {
+                    setTimeout(() => {
+                        letter.querySelector('svg path').style.strokeDashoffset = '0'
+                    }, 50);
+                } else {
+                    letter.querySelector('svg path').style.strokeDashoffset = '0'
+                }
+                sign.appendChild(letter)
+            }
+        }
+    }
+}
+function createSignature() {
+    content.split('').forEach((char, index) => {
+        setTimeout(() => {
+            draw(char, true)
+        }, index * 300);
+    });
+}
+window.onload = () => {
+    setTimeout(() => {
+        modal.classList.add('active');
+        createSignature();
+    }, 32000);
+};
+
 const canvas = document.querySelector('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -8,10 +59,9 @@ const petalImages = [];
 
 for (let i = 1; i <= 11; i++) {
     const img = new Image();
-    img.src = `./assets/flower_${i}.png`;
+    img.src = `./assets/images/flower_${i}.png`;
     petalImages.push(img);
 }
-
 petalImages.forEach((img, index) => {
     img.addEventListener('load', () => {
         if (index === petalImages.length - 1) {
@@ -22,7 +72,6 @@ petalImages.forEach((img, index) => {
         }
     })
 })
-
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     petalArray.forEach(petal => petal.animate());
@@ -90,11 +139,9 @@ class Petal {
         this.draw();
     }
 }
-
 document.body.addEventListener('click', () => {
     document.getElementById('bg-soundtrack').play();
 });
-
 function resizeImage() {
     var height = window.innerHeight;
     var width = window.innerWidth;
@@ -106,6 +153,5 @@ function resizeImage() {
         document.body.style.backgroundPosition = 'center center';
     }
 }
-
 window.addEventListener('DOMContentLoaded', () => resizeImage());
 window.addEventListener('resize', () => resizeImage());
