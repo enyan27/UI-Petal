@@ -71,11 +71,11 @@ h1 {
         padding: 50px 0;
         writing-mode: vertical-rl;
         text-align: center;
-        line-height: 55px;
+        line-height: 60px;
         letter-spacing: 5px;
         clip-path: polygon(0% 0%, 5% 95%, 100% 100%, 95% 5%);;
     }
-    .number {
+    .latin {
         display: inline-block;
         writing-mode: horizontal-tb;
     }
@@ -85,6 +85,15 @@ h1:nth-child(2) {
 }
 h1:nth-child(3) {
     animation-delay: 12s;
+}
+h1:nth-child(4) {
+    animation-delay: 17s;
+}
+h1:nth-child(5) {
+    animation-delay: 22s;
+}
+h1:nth-child(6) {
+    animation-delay: 27s;
 }
 @keyframes fadeInOut {
     0% {
