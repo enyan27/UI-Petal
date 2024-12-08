@@ -48,6 +48,14 @@ h1 {
     clip-path: polygon(0% 0%, 3% 100%, 100% 100%, 97% 0%);
     overflow: hidden;
 }
+.audio-controller {
+    position: fixed;
+    top: 25px;
+    left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media (max-width: 769px) {
     h1 {
         width: 60px;
@@ -62,6 +70,9 @@ h1 {
     .latin {
         display: inline-block;
         writing-mode: horizontal-tb;
+    }
+    .audio-controller {
+        left: 25px;
     }
 }
 h1:nth-child(2) {
@@ -636,4 +647,23 @@ h1:nth-child(7) {
 .lo.z path {
     stroke-dasharray: 67;
     stroke-dashoffset: 67;
+}
+
+.border {
+    position: absolute;
+}
+.border svg {
+    transform-origin: center;
+    display: block;
+}
+.border.play svg {
+    animation: spin 10s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

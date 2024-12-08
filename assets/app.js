@@ -139,9 +139,6 @@ class Petal {
         this.draw();
     }
 }
-document.body.addEventListener('click', () => {
-    document.getElementById('bg-soundtrack').play();
-});
 function resizeImage() {
     var height = window.innerHeight;
     var width = window.innerWidth;
@@ -155,3 +152,19 @@ function resizeImage() {
 }
 window.addEventListener('DOMContentLoaded', () => resizeImage());
 window.addEventListener('resize', () => resizeImage());
+
+const audioController = document.querySelector('.audio-controller');
+const audioControllerImg = document.querySelector('.audio-controller-img');
+const audio = document.getElementById('bg-soundtrack');
+const border = document.querySelector('.border');
+audioController.addEventListener('click', () => {
+    if (audio.paused) {
+        audio.play();
+        audioControllerImg.src = './assets/images/audio-on.png';
+        border.classList.add('play');
+    } else {
+        audio.pause();
+        audioControllerImg.src = './assets/images/audio-off.png';
+        border.classList.remove('play');
+    }
+});
