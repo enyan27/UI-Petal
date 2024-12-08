@@ -56,25 +56,6 @@ h1 {
     align-items: center;
     justify-content: center;
 }
-@media (max-width: 769px) {
-    h1 {
-        width: 60px;
-        height: auto;
-        padding: 40px 0;
-        writing-mode: vertical-rl;
-        text-align: center;
-        line-height: 62px;
-        letter-spacing: 5px;
-        clip-path: polygon(0% 0%, 0% 97%, 100% 100%, 100% 3%);;
-    }
-    .latin {
-        display: inline-block;
-        writing-mode: horizontal-tb;
-    }
-    .audio-controller {
-        left: 25px;
-    }
-}
 h1:nth-child(2) {
     animation-delay: 3s;
 }
@@ -113,6 +94,25 @@ h1:nth-child(7) {
         text-shadow: 0 0 1em #FBFBFB;
         opacity: 0;
         margin-left: 0;
+    }
+}
+@media (max-width: 769px) {
+    h1 {
+        width: 60px;
+        height: auto;
+        padding: 40px 0;
+        writing-mode: vertical-rl;
+        text-align: center;
+        line-height: 62px;
+        letter-spacing: 5px;
+        clip-path: polygon(0% 0%, 0% 97%, 100% 100%, 100% 3%);;
+    }
+    .latin {
+        display: inline-block;
+        writing-mode: horizontal-tb;
+    }
+    .audio-controller {
+        left: 25px;
     }
 }
 
